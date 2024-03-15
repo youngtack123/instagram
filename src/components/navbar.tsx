@@ -8,6 +8,7 @@ import SearchFillIcon from "./ui/icons/searchFillIcon";
 import NewIcon from "./ui/icons/newIcon";
 import NewFillIcon from "./ui/icons/newFillIcon";
 import { usePathname } from "next/navigation";
+import ColorButton from "./ui/colorButton";
 
 const menu = [
   {
@@ -31,12 +32,12 @@ function Navbar() {
   const pathname = usePathname();
 
   return (
-    <div>
+    <div className="flex justify-between items-center px-6">
       <Link href="/">
-        <h1>Instantgram</h1>
+        <h1 className="text-3xl font-bold">Instantgram</h1>
       </Link>
       <nav>
-        <ul>
+        <ul className="flex gap-4 items-center p-4">
           {menu.map((item) => (
             <li key={item.href}>
               <Link href={item.href}>
@@ -44,6 +45,7 @@ function Navbar() {
               </Link>
             </li>
           ))}
+          <ColorButton text="Sign in" _onClick={() => {}} />
         </ul>
       </nav>
     </div>
