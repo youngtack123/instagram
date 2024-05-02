@@ -11,7 +11,7 @@ export default function FollowingBar() {
   const users = data?.following;
 
   return (
-    <section>
+    <section className="w-full flex justify-center items-center p-4 shadow-sm shadow-neutral-300 mb-4 rounded-lg min-h-[90px] overflow-x-auto">
       {loading ? (
         <PropagateLoader size={8} color="red" />
       ) : (
@@ -19,12 +19,17 @@ export default function FollowingBar() {
       )}
       {users && users.length > 0 && (
         <div>
-          <ul>
+          <ul className="w-full flex gap-2">
             {users.map(({ image, username }) => (
               <li key={username}>
-                <Link href={`/user/${username}`}>
+                <Link
+                  className="flex flex-col items-center w-20"
+                  href={`/user/${username}`}
+                >
                   <Avartar image={image} highlight />
-                  <p>{username}</p>
+                  <p className="w-full text-sm text-center text-ellipsis overflow-hidden">
+                    {username}
+                  </p>
                 </Link>
               </li>
             ))}
