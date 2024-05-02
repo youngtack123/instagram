@@ -11,7 +11,9 @@ function Avartar({ image, size = "normal", highlight = false }: Props) {
     <div className={getContainerStyle(size, highlight)}>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className={`bg-white rounded-full ${getImageSizeStyle(size)}`}
+        className={`bg-white object-cover rounded-full ${getImageSizeStyle(
+          size
+        )}`}
         src={image ?? undefined}
         alt="user profile"
         referrerPolicy="no-referrer"
