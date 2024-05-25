@@ -8,6 +8,7 @@ import ActionBar from "./actionBar";
 import { useState } from "react";
 import ModalPortal from "./ui/modalPortal";
 import PostModal from "./postModal";
+import PostDetail from "./postDetail";
 
 type Props = {
   post: SimplePost;
@@ -43,7 +44,7 @@ export default function PostListCard({ post, priority = false }: Props) {
       {openModal && (
         <ModalPortal>
           <PostModal onClose={() => setOpenModal(false)}>
-            <p>포스트 상세 페이지</p>
+            <PostDetail post={post} />
           </PostModal>
         </ModalPortal>
       )}
