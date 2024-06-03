@@ -9,6 +9,7 @@ import { useState } from "react";
 import ModalPortal from "./ui/modalPortal";
 import PostModal from "./postModal";
 import PostDetail from "./postDetail";
+import PostUserAvatar from "./postUserAvatar";
 
 type Props = {
   post: SimplePost;
@@ -21,10 +22,7 @@ export default function PostListCard({ post, priority = false }: Props) {
 
   return (
     <article className="rounded-lg shadow-md border border-gray-200">
-      <div className="flex items-center p-2">
-        <Avartar image={userImage} size="medium" highlight />
-        <span className="text-gray-900 font-bold ml-2">{username}</span>
-      </div>
+      <PostUserAvatar image={userImage} username={username} />
       <Image
         className="w-full object-cover aspect-square"
         src={image}
@@ -41,6 +39,7 @@ export default function PostListCard({ post, priority = false }: Props) {
         createdAt={createdAt}
       />
       <CommentForm />
+
       {openModal && (
         <ModalPortal>
           <PostModal onClose={() => setOpenModal(false)}>
