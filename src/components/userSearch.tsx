@@ -1,6 +1,8 @@
 "use client";
-import { useState } from "react";
+import { ProfileUser } from "@/model/user";
+import { FormEvent, useState } from "react";
 import useSWR from "swr";
+import GridSpinner from "./ui/gridSpinner";
 
 export default function UserSearch() {
   // /api/search/${keyword}
@@ -8,8 +10,41 @@ export default function UserSearch() {
   // 검색하는 keyword가 없다면, /api/search -> 전체 유저에대한 배열
 
   const [keyword, setKeyword] = useState("");
-  const { data, isLoading, error } = useSWR(`/api/search/${keyword}`);
-  console.log(data);
+  const {
+    data: users,
+    isLoading,
+    error,
+  } = useSWR<ProfileUser[]>(`/api/search/${keyword}`);
 
-  return <div>UserSearch</div>;
+  const onSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
+  return (
+    <>
+      <form onSubmit={onSubmit}>
+        <input
+          type="text"
+          autoFocus
+          placeholder="Search for a username or name"
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+        />
+      </form>
+
+      {error && <p>무언가가 잘못 되었음.</p>}
+      {isLoading && <GridSpinner />}
+      {!isLoading && !error && users?.length === 0 && (
+        <p>찾는 사용자가 없음 </p>
+      )}
+      <ul>
+        {users &&
+          users.map((user) => (
+            <li key={user.username}>
+              <p>{user.username}</p>
+            </li>
+          ))}
+      </ul>
+    </>
+  );
 }
