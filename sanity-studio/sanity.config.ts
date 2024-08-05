@@ -1,8 +1,8 @@
 import {defineConfig, isDev} from 'sanity'
 import {visionTool} from '@sanity/vision'
 import {structureTool} from 'sanity/structure'
-import {schemaTypes} from './schemaTypes'
 import {getStartedPlugin} from './plugins/sanity-plugin-tutorial'
+import {schemaTypes} from './schemas'
 
 const devOnlyPlugins = [getStartedPlugin()]
 
@@ -19,4 +19,3 @@ export default defineConfig({
     types: schemaTypes,
   },
 })
-

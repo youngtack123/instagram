@@ -1,5 +1,3 @@
-import {Rule} from 'sanity'
-
 export default {
   title: 'Post',
   name: 'post',
@@ -20,8 +18,13 @@ export default {
       title: 'Likes',
       name: 'likes',
       type: 'array',
-      of: [{type: 'reference', to: [{type: 'user'}]}],
-      validation: (Rule: Rule) => Rule.unique(),
+      of: [
+        {
+          type: 'reference',
+          to: [{type: 'user'}],
+        },
+      ],
+      validation: (Rule) => Rule.unique(),
     },
     {
       title: 'Comments',
@@ -56,7 +59,7 @@ export default {
       authorUsername: 'author.username',
       media: 'photo',
     },
-    prepare(selection: {title: string; authorName: string; authorUsername: string; media: string}) {
+    prepare(selection) {
       const {title, authorName, authorUsername, media} = selection
       return {
         title,
