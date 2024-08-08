@@ -20,7 +20,11 @@ export async function getFollowingPostsOf(username: string) {
     *[_type =="post" && author->username == "${username}" 
     || author._ref in *[_type == "user" && username == "${username}"].following[]._ref]
     | order(_createdAt desc){${simplePostProjection}}
-    `
+    `,
+      {},
+      {
+        useCdn: false,
+      }
     )
     .then(mapPosts);
 }
@@ -78,6 +82,7 @@ export async function getSavedPostsOf(username: string) {
 function mapPosts(posts: SimplePost[]) {
   return posts.map((post: SimplePost) => ({
     ...post,
+    likes: post.likes ?? [],
     image: urlFor(post.image),
   }));
 }
@@ -98,6 +103,6 @@ export async function likePost(postId: string, userId: string) {
 export async function dislikePost(postId: string, userId: string) {
   return client
     .patch(postId)
-    .unset([`likes[_ref="${userId}"]`])
+    .unset([`likes[_ref=="${userId}"]`])
     .commit();
 }
