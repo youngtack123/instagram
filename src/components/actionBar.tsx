@@ -15,7 +15,7 @@ type Props = {
 };
 
 export default function ActionBar({ post }: Props) {
-  const { id, likes, username, text, createdAt } = post;
+  const { likes, username, text, createdAt } = post;
 
   const { data: session } = useSession();
   const user = session?.user;
@@ -26,7 +26,7 @@ export default function ActionBar({ post }: Props) {
   const { setLike } = usePosts();
   const handleLike = (like: boolean) => {
     if (user) {
-      setLike(post, post.username, like);
+      setLike(post, user.username, like);
     }
   };
 
