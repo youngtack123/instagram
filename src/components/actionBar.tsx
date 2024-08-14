@@ -1,7 +1,7 @@
 import HeartIcon from "./ui/icons/HeartIcon";
 import BookmarkIcon from "./ui/icons/BookmarkIcon";
 import { parseDate } from "@/utils/date";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import ToggleButton from "./ui/toggleButton";
 import HeartFillIcon from "./ui/icons/heartFillIcon";
 import BookmarkFillIcon from "./ui/icons/bookmarkFillIcon";
@@ -13,10 +13,11 @@ import useMe from "@/hooks/me";
 
 type Props = {
   post: SimplePost;
+  children?: ReactNode;
 };
 
-export default function ActionBar({ post }: Props) {
-  const { id, likes, username, text, createdAt } = post;
+export default function ActionBar({ post, children }: Props) {
+  const { id, likes, createdAt } = post;
 
   const { user, setBookmark } = useMe();
   const { setLike } = usePosts();
@@ -52,12 +53,7 @@ export default function ActionBar({ post }: Props) {
         <p className="text-sm font-bold mb-2">{`${likes?.length ?? 0} ${
           likes?.length > 1 ? "Likes" : "Like"
         }`}</p>
-        {text && (
-          <p>
-            <span className="font-bold mr-1">{username}</span>
-            {text}
-          </p>
-        )}
+        {children}
 
         <p className="text-xs text-neutral-500 uppercase my-2">
           {parseDate(createdAt)}
