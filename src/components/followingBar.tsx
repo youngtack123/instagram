@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { PropagateLoader } from "react-spinners";
-import Avartar from "./avartar";
+import Avartar from "./Avartar";
 import ScrollableBar from "./ui/scrollableBar";
 import useMe from "@/hooks/useMe";
 

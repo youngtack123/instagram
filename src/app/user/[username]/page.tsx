@@ -1,5 +1,5 @@
-import UserPosts from "@/components/userPosts";
-import UserProfile from "@/components/userProfile";
+import UserPosts from "@/components/UserPosts";
+import UserProfile from "@/components/UserProfile";
 import { getUserForProfile } from "@/service/user";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";

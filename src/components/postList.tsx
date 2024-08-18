@@ -1,5 +1,5 @@
 "use client";
-import PostListCard from "./postListCard";
+import PostListCard from "./PostListCard";
 import GridSpinner from "./ui/gridSpinner";
 import usePosts from "@/hooks/usePosts";
 

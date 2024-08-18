@@ -1,6 +1,6 @@
 import { ProfileUser } from "@/model/user";
-import Avartar from "./avartar";
-import FollowButton from "./followButton";
+import Avartar from "./Avartar";
+import FollowButton from "./FollowButton";
 
 type Props = {
   user: ProfileUser;

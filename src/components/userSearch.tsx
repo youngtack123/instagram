@@ -3,7 +3,7 @@ import { SearchUser } from "@/model/user";
 import { FormEvent, useState } from "react";
 import useSWR from "swr";
 import GridSpinner from "./ui/gridSpinner";
-import UserCard from "./userCard";
+import UserCard from "./UserCard";
 import useDebounce from "@/hooks/useDebounce";
 
 export default function UserSearch() {

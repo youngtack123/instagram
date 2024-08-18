@@ -1,7 +1,7 @@
 import { SearchUser } from "@/model/user";
 import Link from "next/link";
 import React from "react";
-import Avartar from "./avartar";
+import Avartar from "./Avartar";
 
 type Props = {
   user: SearchUser;

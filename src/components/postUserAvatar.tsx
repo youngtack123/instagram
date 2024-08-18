@@ -1,4 +1,4 @@
-import Avartar from "./avartar";
+import Avartar from "./Avartar";
 
 type Props = {
   image: string;

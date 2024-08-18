@@ -1,6 +1,6 @@
-import FollowingBar from "@/components/followingBar";
-import PostList from "@/components/postList";
-import SideBar from "@/components/sideBar";
+import FollowingBar from "@/components/FollowingBar";
+import PostList from "@/components/PostList";
+import SideBar from "@/components/SideBar";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { redirect } from "next/navigation";

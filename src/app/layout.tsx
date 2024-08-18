@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/navbar";
+import Navbar from "@/components/Navbar";
 import AuthContext from "@/context/authContext";
 import SWRConfigContext from "@/context/swrConfigContext";
 

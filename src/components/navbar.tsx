@@ -10,7 +10,7 @@ import NewFillIcon from "./ui/icons/newFillIcon";
 import { usePathname } from "next/navigation";
 import ColorButton from "./ui/colorButton";
 import { useSession, signIn, signOut } from "next-auth/react";
-import Avartar from "./avartar";
+import Avartar from "./Avartar";
 
 const menu = [
   {

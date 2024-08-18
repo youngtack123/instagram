@@ -1,13 +1,11 @@
 import HeartIcon from "./ui/icons/HeartIcon";
 import BookmarkIcon from "./ui/icons/BookmarkIcon";
 import { parseDate } from "@/utils/date";
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import ToggleButton from "./ui/toggleButton";
 import HeartFillIcon from "./ui/icons/heartFillIcon";
 import BookmarkFillIcon from "./ui/icons/bookmarkFillIcon";
 import { SimplePost } from "@/model/post";
-import { useSession } from "next-auth/react";
-import { useSWRConfig } from "swr";
 import usePosts from "@/hooks/usePosts";
 import useMe from "@/hooks/useMe";
 

@@ -1,4 +1,4 @@
-import Signin from "@/components/signin";
+import Signin from "@/components/Signin";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { Metadata } from "next";
 import { getServerSession } from "next-auth";

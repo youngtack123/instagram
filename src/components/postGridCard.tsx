@@ -3,8 +3,8 @@ import { SimplePost } from "@/model/post";
 import Image from "next/image";
 import { useState } from "react";
 import ModalPortal from "./ui/modalPortal";
-import PostModal from "./postModal";
-import PostDetail from "./postDetail";
+import PostModal from "./PostModal";
+import PostDetail from "./PostDetail";
 import { signIn, useSession } from "next-auth/react";
 
 type Props = {
