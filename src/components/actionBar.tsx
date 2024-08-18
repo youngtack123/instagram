@@ -9,7 +9,7 @@ import { SimplePost } from "@/model/post";
 import { useSession } from "next-auth/react";
 import { useSWRConfig } from "swr";
 import usePosts from "@/hooks/usePosts";
-import useMe from "@/hooks/me";
+import useMe from "@/hooks/useMe";
 
 type Props = {
   post: SimplePost;

@@ -21,6 +21,7 @@ export default function PostListCard({ post, priority = false }: Props) {
   const { userImage, username, image, comments, text } = post;
   const [openModal, setOpenModal] = useState(false);
   const { postComment } = usePosts();
+
   const handlePostComment = (comment: string) => {
     postComment(post, comment);
   };
